@@ -1,7 +1,8 @@
-import { Schedule } from "./schedule";
 import * as scheduleJsonFile from "../assets/json/schedule.json";
+import { Schedule } from "./schedule";
+import { JsonManager } from "../class/jsonManager";
 
-export class ScheduleManager {
+export class ScheduleManager extends JsonManager{
     schedules: Schedule[] = [];
 
     /** schedules 裡面有幾個 schedule */

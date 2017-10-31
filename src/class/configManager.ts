@@ -1,7 +1,8 @@
-import { Config } from "./config";
 import * as configJsonFile from "../assets/json/config.json";
+import { Config } from "./config";
+import { JsonManager } from "../class/jsonManager";
 
-export class ConfigManager {
+export class ConfigManager extends JsonManager {
     configs: Config[] = [];
 
     /** configs 裡面有幾個 config */
