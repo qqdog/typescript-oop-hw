@@ -1,15 +1,15 @@
 
-export class JsonManager {
-    getJsonObject(file: any): string {
+export abstract class JsonManager {
+    /** return type is object, but giving type any for passing the syntax hint */
+    getJsonObject(file: any): any {
         /** get json file and transfer it into object */
         /** 
-         * typeof file is object
-         * file object to string
+         * type of file is object
+         * transfer file object to string
+         * and parse it into an object
          */
-        return JSON.stringify(file);
+        return JSON.parse(JSON.stringify(file));
     }
 
-    processJsonConfig() {
-        /**common place(process) between configManager and scheduleManager */
-    }
+    abstract processJsonConfig(): void;
 }

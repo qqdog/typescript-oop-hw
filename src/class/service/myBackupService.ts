@@ -2,7 +2,7 @@ import { JsonManager } from "../jsonManager";
 import { ConfigManager } from "../configManager";
 import { ScheduleManager } from '../scheduleManager';
 
-class MyBackupService {
+export class MyBackupService {
     private managers: JsonManager[] = []; 
 
     constructor()
