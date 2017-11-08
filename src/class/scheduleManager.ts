@@ -1,26 +1,20 @@
-import { Schedule } from "./schedule";
 import * as scheduleJsonFile from "../assets/json/schedule.json";
+import { Schedule } from "./schedule";
+import { JsonManager } from "../class/jsonManager";
 
-export class ScheduleManager {
+export class ScheduleManager extends JsonManager{
     schedules: Schedule[] = [];
 
     /** schedules 裡面有幾個 schedule */
     count: number;
 
-    processSchedules() {
-        /** 
-         * typeof scheduleJsonFile is object 
-         * file object to string
-         */
-        const jsonFileString: string = JSON.stringify(scheduleJsonFile);
-        
-        /** type of scheduleObj is object */
-        const schedulesObj = JSON.parse(jsonFileString).schedules;
-        
+    processJsonConfig(): void {
+        const schedulesObj = this.getJsonObject(scheduleJsonFile).schedules;
+
         /** save data */
         this.count = schedulesObj.length;
-        for (let i=0; i<this.count; i++) {            
-            let scheduleObj = JSON.parse(JSON.stringify(schedulesObj[i]));
+        for (let i=0; i<this.count; i++) {           
+            let scheduleObj = schedulesObj[i];
             
             let ext: string = scheduleObj.ext;
             let interval: string = scheduleObj.interval;

@@ -1,27 +1,21 @@
-import { Config } from "./config";
 import * as configJsonFile from "../assets/json/config.json";
+import { Config } from "./config";
+import { JsonManager } from "../class/jsonManager";
 
-export class ConfigManager {
+export class ConfigManager extends JsonManager {
     configs: Config[] = [];
 
     /** configs 裡面有幾個 config */
     count: number;
 
-    processConfigs() {
-        /** 
-         * typeof configJsonFile is object 
-         * file object to string
-         */
-        const jsonFileString: string = JSON.stringify(configJsonFile);
-        
-        /** type of configObj is object */
-        const configsObj = JSON.parse(jsonFileString).configs;
+    processJsonConfig(): void {
+        const configsObj = this.getJsonObject(configJsonFile).configs;
         
         /** save data */
         this.count = configsObj.length;
         for (let i=0; i<this.count; i++) {            
-            let configObj = JSON.parse(JSON.stringify(configsObj[i]));
-            
+            let configObj = configsObj[i];
+                        
             let ext: string = configObj.ext;
             let location: string = configObj.location;
             let subDirectory: string = configObj.subDirectory;
