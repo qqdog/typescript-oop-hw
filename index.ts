@@ -25,7 +25,7 @@ console.log("Hello World index.ts");
 
 /** verify myBackupService(need to change the attribute of manager(private to public) first) */
 // let myBackupService = new MyBackupService();
-// myBackupService.processJsonConfigs;
+// myBackupService.processJsonConfigs();
 // for (var k=0; k<myBackupService.managers.length; k++) {
 //     console.log("this is in index.ts " + k);
 //     console.log(myBackupService.managers);

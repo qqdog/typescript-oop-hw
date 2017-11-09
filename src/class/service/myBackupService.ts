@@ -3,7 +3,8 @@ import { ConfigManager } from "../configManager";
 import { ScheduleManager } from '../scheduleManager';
 
 export class MyBackupService {
-    private managers: JsonManager[] = []; 
+    //private managers: JsonManager[] = [];
+    managers: JsonManager[] = []; 
 
     constructor()
     {

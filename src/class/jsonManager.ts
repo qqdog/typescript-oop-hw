@@ -1,5 +1,7 @@
 
 export abstract class JsonManager {
+    abstract count: number;
+
     /** return type is object, but giving type any for passing the syntax hint */
     getJsonObject(file: any): any {
         /** get json file and transfer it into object */
